@@ -121,12 +121,14 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
             </a>
 
             <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-                <a href="#beranda" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Beranda</a>
-                <a href="#artifak" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Artifak Pembelajaran</a>
-                <a href="#analisis" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Analisis & Teori</a>
-                <a href="#galeri" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Galeri 4 Siklus</a>
-                <a href="#refleksi" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Refleksi & RTL</a>
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-1.5">
+                <a href="#beranda" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Beranda</a>
+                <a href="#pengalaman" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Pengalaman</a>
+                <a href="#artifak" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Artifak</a>
+                <a href="#analisis" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Analisis & Teori</a>
+                <a href="#galeri" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Galeri 4 Siklus</a>
+                <a href="#non-mengajar" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Kegiatan Non-Mengajar</a>
+                <a href="#refleksi" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Refleksi & RTL</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -139,9 +141,11 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
         <!-- Mobile Menu Dropdown -->
         <div x-show="mobileMenuOpen" x-cloak class="md:hidden glass-card border-b border-lilac-200 px-4 pt-2 pb-6 space-y-2">
             <a href="#beranda" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Beranda</a>
-            <a href="#artifak" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Artifak Pembelajaran</a>
-            <a href="#analisis" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Analisis & Teori</a>
-            <a href="#galeri" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Galeri 4 Siklus</a>
+            <a href="#pengalaman" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Pengalaman PPL</a>
+            <a href="#artifak" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Artifak Pembelajaran</a>
+            <a href="#analisis" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Analisis & Teori</a>
+            <a href="#galeri" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Galeri 4 Siklus</a>
+            <a href="#non-mengajar" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Kegiatan Non-Mengajar</a>
             <a href="#refleksi" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Refleksi & RTL</a>
         </div>
     </header>
@@ -171,9 +175,9 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                             <span>Eksplorasi Artifak Terbaik</span>
                             <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition"></i>
                         </a>
-                        <a href="#analisis" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-matcha-50 hover:to-lilac-50 text-slate-800 font-bold border border-lilac-200 shadow-sm transition flex items-center space-x-2">
-                            <i data-lucide="book-open" class="w-5 h-5 text-matcha-600"></i>
-                            <span>Kajian & Analisis</span>
+                        <a href="#pengalaman" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-matcha-50 hover:to-lilac-50 text-slate-800 font-bold border border-lilac-200 shadow-sm transition flex items-center space-x-2">
+                            <i data-lucide="heart-handshake" class="w-5 h-5 text-matcha-600"></i>
+                            <span>Kisah Pengalaman</span>
                         </a>
                     </div>
 
@@ -227,7 +231,60 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
             </div>
         </section>
 
-        <!-- 2. ARTIFAK & BUKTI MENGAJAR (1 SIKLUS UNGGULAN TERBAIK) -->
+        <!-- 2. CERITA SINGKAT PENGALAMAN PPL -->
+        <section id="pengalaman" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 sm:p-12 rounded-[2.5rem] shadow-xl border border-white futuristic-glow space-y-8">
+                <div class="max-w-3xl space-y-3">
+                    <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Kisah Perjalanan</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Pengalaman PPL Mandiri di SMPN 6 Singaraja</h2>
+                    <p class="text-slate-600 text-sm sm:text-base">Catatan reflektif mengenai dinamika interaksi, adaptasi lingkungan sekolah, dan pertumbuhan profesional selama mengampu mata pelajaran Informatika.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Narasi Esai -->
+                    <div class="lg:col-span-8 space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                        <p>
+                            Menjalani Praktik Pengalaman Lapangan (PPL) Mandiri di SMP Negeri 6 Singaraja merupakan sebuah perjalanan transformatif yang penuh pembelajaran berharga. Sebagai calon guru Informatika, saya berhadapan langsung dengan dinamika karakteristik peserta didik Fase D yang sangat beragam—mulai dari siswa yang sangat antusias dengan teknologi hingga mereka yang membutuhkan pendekatan belajar lebih bertahap.
+                        </p>
+                        <p>
+                            Tantangan terbesar sekaligus momen paling mengesan adalah ketika merancang media pembelajaran interaktif yang mampu menjembatani perbedaan tersebut. Dengan mengintegrasikan kerangka <em>Understanding by Design (UbD)</em>, strategi <em>Teaching at the Right Level (TaRL)</em>, serta kearifan lokal Bali <em>Tri Hita Karana</em>, saya menyaksikan bagaimana iklim kelas yang inklusif dan ramah dapat meningkatkan motivasi serta rasa percaya diri peserta didik secara signifikan.
+                        </p>
+                        <p>
+                            Bimbingan intensif dari Guru Pamong dan Dosen Pembimbing Lapangan (DPL) membuka wawasan saya bahwa mengajar bukan hanya tentang penguasaan materi teknis, tetapi tentang bagaimana membangun relasi humanis yang menuntun kodrat dan potensi unik setiap anak.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Cards Pengalaman -->
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="p-5 rounded-2xl bg-gradient-to-r from-matcha-50 to-white border border-matcha-200 space-y-2">
+                            <div class="flex items-center space-x-2 text-matcha-700 font-bold text-sm">
+                                <i data-lucide="users" class="w-4 h-4"></i>
+                                <span>Kedekatan Emosional</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Membangun komunikasi terbuka dan empati tinggi bersama siswa di luar jam tatap muka kelas.</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-gradient-to-r from-lilac-50 to-white border border-lilac-200 space-y-2">
+                            <div class="flex items-center space-x-2 text-lilac-700 font-bold text-sm">
+                                <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                                <span>Inovasi Tak Terhenti</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Mengembangkan gamifikasi media interaktif web sebagai solusi atas kejenuhan belajar teori.</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-white border border-gradient-to-r from-matcha-200 to-lilac-200 space-y-2">
+                            <div class="flex items-center space-x-2 text-slate-800 font-bold text-sm">
+                                <i data-lucide="award" class="w-4 h-4 text-amber-500"></i>
+                                <span>Ekosistem Sekolah</span>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">Terlibat aktif dalam berbagai kegiatan non-akademik dan kebudayaan bersama dewan guru.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ARTIFAK & BUKTI MENGAJAR (1 SIKLUS UNGGULAN TERBAIK) -->
         <section id="artifak" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Produk Unggulan PPL</span>
@@ -306,7 +363,7 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
             </div>
         </section>
 
-        <!-- 3. ANALISIS ARTIFAK MENDALAM & KAJIAN TEORI -->
+        <!-- 4. ANALISIS ARTIFAK MENDALAM & KAJIAN TEORI -->
         <section id="analisis" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Kajian Akademik</span>
@@ -315,7 +372,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1: Konteks & Tujuan -->
                 <div class="glass-card p-7 rounded-3xl shadow-sm border border-white space-y-4">
                     <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-matcha-100 to-matcha-200 text-matcha-800 flex items-center justify-center font-bold">
                         <i data-lucide="target" class="w-6 h-6"></i>
@@ -326,7 +382,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                     </p>
                 </div>
 
-                <!-- Card 2: Kelebihan & Inovasi -->
                 <div class="glass-card p-7 rounded-3xl shadow-sm border border-white space-y-4">
                     <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-lilac-100 to-lilac-200 text-lilac-800 flex items-center justify-center font-bold">
                         <i data-lucide="zap" class="w-6 h-6"></i>
@@ -337,7 +392,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                     </p>
                 </div>
 
-                <!-- Card 3: Kendala & Solusi -->
                 <div class="glass-card p-7 rounded-3xl shadow-sm border border-white space-y-4">
                     <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 flex items-center justify-center font-bold">
                         <i data-lucide="shield-alert" class="w-6 h-6"></i>
@@ -350,7 +404,7 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                 </div>
             </div>
 
-            <!-- TEORI PEDAGOGIS INTEGRASI (50:50 MATCH A & LILAC) -->
+            <!-- TEORI PEDAGOGIS INTEGRASI -->
             <div class="mt-8 glass-card p-8 sm:p-10 rounded-[2.5rem] shadow-xl border border-white space-y-6">
                 <h3 class="font-black text-xl text-slate-900 flex items-center space-x-3">
                     <div class="p-2 rounded-xl bg-gradient-to-r from-matcha-500 to-lilac-500 text-white">
@@ -381,15 +435,15 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
             </div>
         </section>
 
-        <!-- 4. GALERI DOKUMENTASI SIKLUS PPL (4 SIKLUS) -->
+        <!-- 5. GALERI DOKUMENTASI SIKLUS PPL (4 SIKLUS) -->
         <section id="galeri" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Dokumentasi Praktik</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Galeri Dokumentasi 4 Siklus</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Masing-masing siklus menampilkan 4 foto kegiatan kelas autentik beserta deskripsi dan viewer modal.</p>
+                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Dokumentasi Praktik Mengajar</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Galeri Foto Praktik 4 Siklus</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Dokumentasi autentik aktivitas pembelajaran kelas untuk masing-masing siklus PPL Mandiri.</p>
             </div>
 
-            <!-- Gallery Tab Menu 50:50 Warna -->
+            <!-- Gallery Tab Menu -->
             <div class="flex justify-center mb-8">
                 <div class="inline-flex p-1.5 rounded-2xl glass-card shadow-sm border border-lilac-200 flex-wrap justify-center gap-1.5">
                     <button @click="galleryTab = 's1'" :class="galleryTab === 's1' ? 'bg-gradient-to-r from-matcha-600 to-lilac-600 text-white shadow-md' : 'text-slate-700 hover:bg-white/60'" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 1</button>
@@ -401,8 +455,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
 
             <!-- GALLERY GRID (4 PHOTOS PER CYCLE) -->
             <div class="glass-card p-6 sm:p-8 rounded-[2.5rem] shadow-xl border border-white">
-                
-                <!-- SIKLUS 1 PHOTOS -->
                 <div x-show="galleryTab === 's1'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
                         {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Observasi Awal Kelas', desc: 'Orientasi awal lingkungan SMPN 6 Singaraja.'},
@@ -425,7 +477,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                     </template>
                 </div>
 
-                <!-- SIKLUS 2 PHOTOS -->
                 <div x-show="galleryTab === 's2'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
                         {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Berpikir Komputasional', desc: 'Penyampaian materi dekomposisi masalah.'},
@@ -448,7 +499,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                     </template>
                 </div>
 
-                <!-- SIKLUS 3 PHOTOS -->
                 <div x-show="galleryTab === 's3'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
                         {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Jaringan Komputer', desc: 'Simulasi etika ruang publik virtual.'},
@@ -471,7 +521,6 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                     </template>
                 </div>
 
-                <!-- SIKLUS 4 PHOTOS -->
                 <div x-show="galleryTab === 's4'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
                         {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Praktik Siklus Unggulan', desc: 'Penerapan gim edukasi labirin interaktif.'},
@@ -493,11 +542,69 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
                         </div>
                     </template>
                 </div>
-
             </div>
         </section>
 
-        <!-- 5. REFLEKSI & RENCANA TINDAK LANJUT -->
+        <!-- 6. DOKUMENTASI KEGIATAN NON-MENGAJAR (NEW SECTION) -->
+        <section id="non-mengajar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Kontribusi Persekolahan</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Dokumentasi Kegiatan Non-Mengajar</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Keterlibatan aktif mahasiswa PPL dalam mendukung ekosistem administrasi, kebudayaan, dan tata kelola di SMPN 6 Singaraja.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Activity Card 1 -->
+                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
+                    <div class="h-44 rounded-2xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Piket Administrasi">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-matcha-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Administrasi</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h4 class="font-bold text-slate-900 text-base">Piket & Pelayanan Sekolah</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Membantu administrasi piket harian, menyambut kedatangan siswa di gerbang, dan pelayanan informasi sekolah.</p>
+                    </div>
+                </div>
+
+                <!-- Activity Card 2 -->
+                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
+                    <div class="h-44 rounded-2xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Pendampingan Ekstrakurikuler">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lilac-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Ekstrakurikuler</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h4 class="font-bold text-slate-900 text-base">Pendampingan Ekskul Digital</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Mendampingi kelompok minat sains dan komputer siswa dalam persiapan kompetisi dan literasi digital.</p>
+                    </div>
+                </div>
+
+                <!-- Activity Card 3 -->
+                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
+                    <div class="h-44 rounded-2xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Kegiatan Kebudayaan">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-matcha-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Kebudayaan & THK</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h4 class="font-bold text-slate-900 text-base">Kegiatan Keagamaan & Adat</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Pendampingan persembahyangan bersama (*Parahyangan*) dan kebersihan lingkungan sekolah (*Palemahan*).</p>
+                    </div>
+                </div>
+
+                <!-- Activity Card 4 -->
+                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
+                    <div class="h-44 rounded-2xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Rapat Dewan Guru">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lilac-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Kolaborasi</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h4 class="font-bold text-slate-900 text-base">Rapat & Evaluasi Sekolah</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Mengikuti rapat koordinasi dewan guru dan evaluasi bulanan program sekolah bersama pimpinan SMPN 6 Singaraja.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. REFLEKSI & RENCANA TINDAK LANJUT -->
         <section id="refleksi" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Refleksi Akhir</span>
