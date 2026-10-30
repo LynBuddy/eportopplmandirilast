@@ -8,7 +8,7 @@
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,22 +21,24 @@
                             50: '#F4F7F4',
                             100: '#E2ECE2',
                             200: '#C5D8C5',
+                            400: '#9CB8A0',
                             500: '#84A98C',
                             600: '#6B8E23',
                             700: '#52796F',
                             800: '#354F52',
-                            900: '#2F3E46'
+                            900: '#21332A'
                         },
                         lilac: {
                             50: '#FAF8FC',
                             100: '#F3EEF6',
                             200: '#E0BBE4',
                             300: '#D8B4E2',
+                            400: '#C393D8',
                             500: '#967BB6',
-                            700: '#6B4C9A'
-                        },
-                        warm: {
-                            orange: '#F4A261'
+                            600: '#805BA5',
+                            700: '#6B4C9A',
+                            800: '#513778',
+                            900: '#352152'
                         }
                     },
                     fontFamily: {
@@ -51,20 +53,20 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Alpine.js -->
+    <!-- Alpine.js CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(132, 169, 140, 0.2);
-        }
-        .glass-nav {
-            background: rgba(248, 249, 250, 0.9);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(216, 180, 226, 0.3);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
         .blob-shape {
             border-radius: 60% 40% 70% 30% / 50% 70% 30% 50%;
@@ -74,12 +76,14 @@
             0% { border-radius: 60% 40% 70% 30% / 50% 70% 30% 50%; }
             100% { border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%; }
         }
+        .futuristic-glow {
+            box-shadow: 0 0 25px -5px rgba(132, 169, 140, 0.3), 0 0 25px -5px rgba(216, 180, 226, 0.3);
+        }
         [x-cloak] { display: none !important; }
     </style>
 </head>
 <body x-data="{ 
     dyslexiaMode: false, 
-    activeTab: 'siklus2', 
     galleryTab: 's1',
     mobileMenuOpen: false,
     lightboxOpen: false,
@@ -87,61 +91,58 @@
     lightboxCaption: ''
 }" 
 :class="dyslexiaMode ? 'font-dyslexia' : 'font-sans'" 
-class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selection:text-matcha-900">
+class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 antialiased selection:bg-lilac-200 selection:text-lilac-900 min-h-screen">
 
-    <!-- TOP ACCESSIBILITY BAR -->
-    <div class="bg-matcha-800 text-white text-xs py-1.5 px-4 sticky top-0 z-50 flex justify-between items-center shadow-sm">
+    <!-- TOP ACCESSIBILITY & INFORMATION BAR -->
+    <div class="bg-gradient-to-r from-matcha-900 via-slate-900 to-lilac-900 text-white text-xs py-2 px-4 sticky top-0 z-50 flex justify-between items-center shadow-md">
         <div class="flex items-center space-x-2">
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>PPG Prajabatan Gelombang 2 • Bidang Studi Informatika • SMP Negeri 6 Singaraja</span>
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-medium tracking-wide">PPG Prajabatan • Bidang Studi Informatika • SMP Negeri 6 Singaraja</span>
         </div>
-        <button @click="dyslexiaMode = !dyslexiaMode" class="bg-matcha-700 hover:bg-matcha-600 px-3 py-0.5 rounded text-xs font-medium transition flex items-center space-x-1">
+        <button @click="dyslexiaMode = !dyslexiaMode" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-3 py-1 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5">
             <i data-lucide="eye" class="w-3.5 h-3.5 inline"></i>
             <span x-text="dyslexiaMode ? 'Mode Normal' : 'Mode Ramah Disleksia'"></span>
         </button>
     </div>
 
-    <!-- STICKY NAVBAR -->
-    <header class="sticky top-[33px] z-40 glass-nav border-b border-matcha-200 shadow-sm transition-all duration-300">
+    <!-- STICKY FUTURISTIC NAVBAR -->
+    <header class="sticky top-[37px] z-40 glass-nav border-b border-white/50 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#beranda" class="flex items-center space-x-3 group">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-matcha-600 to-lilac-500 flex items-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition">
-                    <span class="mx-auto">EA</span>
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-matcha-500 to-lilac-500 p-0.5 shadow-md group-hover:scale-105 transition">
+                    <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center font-black text-transparent bg-clip-text bg-gradient-to-r from-matcha-600 to-lilac-600 text-lg">
+                        EB
+                    </div>
                 </div>
                 <div>
-                    <h1 class="font-bold text-base text-matcha-900 leading-tight">Ni Luh Erna Budiartini, S.Pd.</h1>
-                    <p class="text-xs text-matcha-700">E-Portofolio PPL Mandiri PPG</p>
+                    <h1 class="font-extrabold text-base text-slate-900 leading-tight tracking-tight">Ni Luh Erna Budiartini, S.Pd.</h1>
+                    <p class="text-xs font-medium text-transparent bg-clip-text bg-gradient-to-r from-matcha-700 to-lilac-700">E-Portofolio PPL Mandiri PPG</p>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-                <a href="#beranda" class="px-3 py-2 rounded-xl text-sm font-semibold text-matcha-800 hover:bg-matcha-100 transition">Beranda</a>
-                <a href="#artifak" class="px-3 py-2 rounded-xl text-sm font-semibold text-matcha-800 hover:bg-matcha-100 transition">Artifak Pembelajaran</a>
-                <a href="#analisis" class="px-3 py-2 rounded-xl text-sm font-semibold text-matcha-800 hover:bg-matcha-100 transition">Analisis & Teori</a>
-                <a href="#galeri" class="px-3 py-2 rounded-xl text-sm font-semibold text-matcha-800 hover:bg-matcha-100 transition">Galeri 4 Siklus</a>
-                <a href="#refleksi" class="px-3 py-2 rounded-xl text-sm font-semibold text-matcha-800 hover:bg-matcha-100 transition">Refleksi & RTL</a>
-                <a href="#kontak" class="ml-2 px-4 py-2 rounded-xl text-sm font-bold bg-matcha-600 text-white hover:bg-matcha-700 shadow-md transition flex items-center space-x-1">
-                    <i data-lucide="user-check" class="w-4 h-4"></i>
-                    <span>Kontak</span>
-                </a>
+                <a href="#beranda" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Beranda</a>
+                <a href="#artifak" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Artifak Pembelajaran</a>
+                <a href="#analisis" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Analisis & Teori</a>
+                <a href="#galeri" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-lilac-700 hover:bg-lilac-50/80 transition">Galeri 4 Siklus</a>
+                <a href="#refleksi" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-matcha-700 hover:bg-matcha-50/80 transition">Refleksi & RTL</a>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 rounded-xl bg-matcha-100 text-matcha-800">
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 rounded-xl bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800">
                 <i data-lucide="menu" class="w-6 h-6" x-show="!mobileMenuOpen"></i>
                 <i data-lucide="x" class="w-6 h-6" x-show="mobileMenuOpen" x-cloak></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div x-show="mobileMenuOpen" x-cloak class="md:hidden glass-card border-b border-matcha-200 px-4 pt-2 pb-6 space-y-2">
-            <a href="#beranda" @click="mobileMenuOpen = false" class="block px-4 py-2 rounded-lg font-medium hover:bg-matcha-100">Beranda</a>
-            <a href="#artifak" @click="mobileMenuOpen = false" class="block px-4 py-2 rounded-lg font-medium hover:bg-matcha-100">Artifak Pembelajaran</a>
-            <a href="#analisis" @click="mobileMenuOpen = false" class="block px-4 py-2 rounded-lg font-medium hover:bg-matcha-100">Analisis & Teori</a>
-            <a href="#galeri" @click="mobileMenuOpen = false" class="block px-4 py-2 rounded-lg font-medium hover:bg-matcha-100">Galeri 4 Siklus</a>
-            <a href="#refleksi" @click="mobileMenuOpen = false" class="block px-4 py-2 rounded-lg font-medium hover:bg-matcha-100">Refleksi & RTL</a>
-            <a href="#kontak" @click="mobileMenuOpen = false" class="block px-4 py-2 rounded-lg font-medium bg-matcha-600 text-white text-center">Kontak & Profil</a>
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden glass-card border-b border-lilac-200 px-4 pt-2 pb-6 space-y-2">
+            <a href="#beranda" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Beranda</a>
+            <a href="#artifak" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Artifak Pembelajaran</a>
+            <a href="#analisis" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Analisis & Teori</a>
+            <a href="#galeri" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-lilac-100/70">Galeri 4 Siklus</a>
+            <a href="#refleksi" @click="mobileMenuOpen = false" class="block px-4 py-2.5 rounded-xl font-semibold hover:bg-matcha-100/70">Refleksi & RTL</a>
         </div>
     </header>
 
@@ -152,43 +153,39 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Left Hero Text -->
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-lilac-100 text-lilac-700 text-xs font-bold tracking-wide uppercase border border-lilac-200 shadow-sm">
-                        <i data-lucide="award" class="w-4 h-4"></i>
-                        <span>E-Portofolio PPL Mandiri PPG Prajabatan</span>
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 via-white to-lilac-100 border border-lilac-200 shadow-sm text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-lilac-600"></i>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-matcha-700 to-lilac-700">Portofolio Digital Pembelajaran Mandiri</span>
                     </div>
                     
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-matcha-900 tracking-tight leading-tight">
-                        Transformasi Pembelajaran <span class="text-matcha-600 underline decoration-lilac-300 decoration-wavy decoration-2">Informatika</span> Berbasis Inovasi & Nilai Luhur.
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                        Transformasi Pembelajaran <span class="text-transparent bg-clip-text bg-gradient-to-r from-matcha-600 to-lilac-600">Informatika</span> Berbasis Inovasi & Nilai Luhur.
                     </h2>
                     
-                    <p class="text-base sm:text-lg text-matchs-700 text-slate-600 leading-relaxed">
-                        Selamat datang di portofolio profesional saya. Laman ini mendokumentasikan perjalanan praktik mengajar mandiri (Siklus 2 s.d. 4) di <strong>SMP Negeri 6 Singaraja</strong>, dirancang komprehensif dengan kerangka pedagogi modern, berpusat pada peserta didik, serta terintegrasi filosofi <em>Tri Hita Karana</em>.
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+                        Selamat datang di portal e-portofolio akademis saya. Laman ini mendokumentasikan hasil terbaik dari siklus mengajar mandiri di <strong>SMP Negeri 6 Singaraja</strong>, memadukan pendekatan pedagogi Kurikulum Merdeka, diferensiasi media digital, serta nilai kearifan lokal <em>Tri Hita Karana</em>.
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#artifak" class="px-6 py-3.5 rounded-2xl bg-matcha-600 hover:bg-matcha-700 text-white font-bold shadow-lg shadow-matcha-600/20 transition flex items-center space-x-2">
-                            <span>Eksplorasi Artifak</span>
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        <a href="#artifak" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-matcha-600 to-lilac-600 hover:from-matcha-700 hover:to-lilac-700 text-white font-bold shadow-lg shadow-lilac-500/20 transition flex items-center space-x-2 group">
+                            <span>Eksplorasi Artifak Terbaik</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition"></i>
                         </a>
-                        <a href="#analisis" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-matcha-100 text-matcha-800 font-bold border border-matcha-300 shadow-sm transition flex items-center space-x-2">
+                        <a href="#analisis" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-matcha-50 hover:to-lilac-50 text-slate-800 font-bold border border-lilac-200 shadow-sm transition flex items-center space-x-2">
                             <i data-lucide="book-open" class="w-5 h-5 text-matcha-600"></i>
                             <span>Kajian & Analisis</span>
                         </a>
                     </div>
 
                     <!-- Quick Badge Stats -->
-                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-matcha-200">
-                        <div>
-                            <p class="text-2xl font-black text-matcha-800">4 Siklus</p>
-                            <p class="text-xs text-slate-500">PPL Mandiri & Terbimbing</p>
+                    <div class="grid grid-cols-2 gap-6 pt-6 border-t border-lilac-200/60 max-w-md">
+                        <div class="p-4 rounded-2xl bg-white/60 border border-matcha-200">
+                            <p class="text-2xl font-black text-matcha-700">4 Siklus</p>
+                            <p class="text-xs text-slate-500 font-medium">Praktik Mengajar PPL</p>
                         </div>
-                        <div>
-                            <p class="text-2xl font-black text-matcha-800">Fase D</p>
-                            <p class="text-xs text-slate-500">Kelas 8 & 9 SMP</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-black text-matcha-800">100/100</p>
-                            <p class="text-xs text-slate-500">Target Skor Penilaian</p>
+                        <div class="p-4 rounded-2xl bg-white/60 border border-lilac-200">
+                            <p class="text-2xl font-black text-lilac-700">Fase D</p>
+                            <p class="text-xs text-slate-500 font-medium">SMP Kelas 8 & 9</p>
                         </div>
                     </div>
                 </div>
@@ -196,30 +193,31 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
                 <!-- Right Hero Visual / Profile Frame -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-sm">
-                        <!-- Glow background -->
-                        <div class="absolute -inset-2 bg-gradient-to-r from-matcha-500 to-lilac-400 rounded-[60%_40%_70%_30%/50%_70%_30%_50%] opacity-40 blur-xl animate-pulse"></div>
+                        <!-- Dual Glow background Matcha & Lilac -->
+                        <div class="absolute -inset-3 bg-gradient-to-r from-matcha-400 via-lilac-300 to-lilac-500 rounded-[60%_40%_70%_30%/50%_70%_30%_50%] opacity-50 blur-2xl animate-pulse"></div>
                         
                         <!-- Main Card Container -->
-                        <div class="relative glass-card p-6 rounded-[2.5rem] shadow-xl border border-white/80 space-y-5 text-center">
-                            <!-- Unique Blob Image Frame -->
-                            <div class="relative w-48 h-48 mx-auto overflow-hidden blob-shape border-4 border-white shadow-md bg-gradient-to-tr from-matcha-200 to-lilac-200 flex items-center justify-center">
-                                <!-- Professional Avatar Placeholder -->
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Ni Luh Erna Budiartini, S.Pd." class="w-full h-full object-cover">
-                            </div>
-
-                            <div>
-                                <h3 class="font-extrabold text-xl text-matcha-900">Ni Luh Erna Budiartini, S.Pd.</h3>
-                                <p class="text-sm font-semibold text-matcha-600">Guru Pratama Bidang Informatika</p>
-                                <p class="text-xs text-slate-500 mt-1">PPG Prajabatan Universitas Pendidikan Ganesha</p>
-                            </div>
-
-                            <div class="bg-matcha-100/70 p-3.5 rounded-2xl text-left space-y-2 text-xs">
-                                <div class="flex items-center space-x-2 text-matcha-800 font-medium">
-                                    <i data-lucide="school" class="w-4 h-4 text-matcha-600 flex-shrink-0"></i>
-                                    <span>Sekolah Latihan: SMP Negeri 6 Singaraja</span>
+                        <div class="relative glass-card p-7 rounded-[2.5rem] shadow-2xl futuristic-glow space-y-6 text-center border border-white">
+                            <!-- Blob Image Frame with Matcha-Lilac Dual Border -->
+                            <div class="relative w-48 h-48 mx-auto p-1 bg-gradient-to-tr from-matcha-500 to-lilac-500 blob-shape shadow-lg">
+                                <div class="w-full h-full overflow-hidden blob-shape bg-white">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Ni Luh Erna Budiartini, S.Pd." class="w-full h-full object-cover">
                                 </div>
-                                <div class="flex items-center space-x-2 text-matcha-800 font-medium">
-                                    <i data-lucide="map-pin" class="w-4 h-4 text-matcha-600 flex-shrink-0"></i>
+                            </div>
+
+                            <div class="space-y-1">
+                                <h3 class="font-black text-xl text-slate-900">Ni Luh Erna Budiartini, S.Pd.</h3>
+                                <p class="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-matcha-600 to-lilac-600">Guru Pratama Informatika</p>
+                                <p class="text-[11px] font-semibold text-slate-500">PPG Prajabatan Undiksha</p>
+                            </div>
+
+                            <div class="bg-gradient-to-r from-matcha-50/80 to-lilac-50/80 p-4 rounded-2xl border border-lilac-200/50 text-left space-y-2.5 text-xs">
+                                <div class="flex items-center space-x-2.5 text-slate-700 font-medium">
+                                    <i data-lucide="school" class="w-4 h-4 text-matcha-600 flex-shrink-0"></i>
+                                    <span>SMP Negeri 6 Singaraja</span>
+                                </div>
+                                <div class="flex items-center space-x-2.5 text-slate-700 font-medium">
+                                    <i data-lucide="map-pin" class="w-4 h-4 text-lilac-600 flex-shrink-0"></i>
                                     <span>Buleleng, Bali, Indonesia</span>
                                 </div>
                             </div>
@@ -229,183 +227,77 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
             </div>
         </section>
 
-        <!-- 2. ARTIFAK & BUKTI MENGAJAR (SIKLUS 2 s.d. 4) -->
+        <!-- 2. ARTIFAK & BUKTI MENGAJAR (1 SIKLUS UNGGULAN TERBAIK) -->
         <section id="artifak" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="px-3 py-1 rounded-full bg-matcha-200 text-matcha-800 text-xs font-bold uppercase tracking-wider">Komponen Utama (20 Poin)</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-matcha-900">Artifak Pembelajaran Terbaik</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Dokumentasi lengkap rancangan modul ajar diferensiasi, video praktik pembelajaran interaktif, serta lembar kerja peserta didik (LKPD) dari siklus unggulan.</p>
+                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Produk Unggulan PPL</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Artifak Pembelajaran Terbaik</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Rancangan Modul Ajar Diferensiasi dan Video Pelaksanaan Mengajar dari Siklus Terbaik (Siklus 4 Unggulan) yang diverifikasi oleh Guru Pamong & DPL.</p>
             </div>
 
-            <!-- Cycle Tab Navigation -->
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex p-1.5 rounded-2xl glass-card shadow-sm border border-matcha-200">
-                    <button @click="activeTab = 'siklus2'" :class="activeTab === 'siklus2' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-5 py-2.5 rounded-xl font-bold text-sm transition">Siklus 2</button>
-                    <button @click="activeTab = 'siklus3'" :class="activeTab === 'siklus3' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-5 py-2.5 rounded-xl font-bold text-sm transition">Siklus 3</button>
-                    <button @click="activeTab = 'siklus4'" :class="activeTab === 'siklus4' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-5 py-2.5 rounded-xl font-bold text-sm transition">Siklus 4 (Unggulan)</button>
-                </div>
-            </div>
-
-            <!-- Tab Content Container -->
-            <div class="glass-card p-6 sm:p-8 rounded-[2.5rem] shadow-xl border border-matcha-200 space-y-8">
+            <!-- Single Featured Cycle Container -->
+            <div class="glass-card p-6 sm:p-10 rounded-[2.5rem] shadow-xl border border-white/80 space-y-8 futuristic-glow">
                 
-                <!-- SIKLUS 2 CONTENT -->
-                <div x-show="activeTab === 'siklus2'" x-cloak class="space-y-6">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-4 border-b border-matcha-200 gap-4">
-                        <div>
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">Terverifikasi GP & DPL</span>
-                            <h3 class="text-2xl font-bold text-matcha-900 mt-1">Siklus 2: Berpikir Komputasional & Algoritma Lanjutan</h3>
-                            <p class="text-sm text-slate-600">Fokus pada pemecahan masalah dekomposisi dan pengenalan pola tingkat lanjut untuk Kelas 9.</p>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gradient-to-r from-matcha-200 to-lilac-200 gap-4">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-bold mb-2">
+                            <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i>
+                            <span>Siklus 4 (Siklus Unggulan Terpilih)</span>
                         </div>
-                        <span class="text-xs font-semibold px-4 py-2 bg-matcha-100 rounded-xl text-matcha-800">SMPN 6 Singaraja • Kelas 9.3</span>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Analisis Data & Dampak Sosial Informatika</h3>
+                        <p class="text-sm text-slate-600 mt-1">Penerapan Gamifikasi Web Interaktif dan Pembelajaran Kolaboratif Berbasis Tri Hita Karana.</p>
                     </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Modul Ajar Preview -->
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-base text-matcha-900 flex items-center space-x-2">
-                                <i data-lucide="file-text" class="w-5 h-5 text-matcha-600"></i>
-                                <span>Modul Ajar / RPP Diferensiasi</span>
-                            </h4>
-                            <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-white shadow-sm h-80 flex flex-col justify-between p-4">
-                                <div class="space-y-2">
-                                    <div class="flex items-center justify-between text-xs text-slate-500 font-semibold">
-                                        <span>Format: Google Docs / PDF</span>
-                                        <span class="text-emerald-600">Status: Sempurna (100)</span>
-                                    </div>
-                                    <p class="text-sm text-slate-700 font-medium">Modul Ajar Berdeferensiasi Konten, Proses, dan Produk berbasis UbD & TaRL.</p>
-                                </div>
-                                <div class="bg-matcha-50 p-4 rounded-xl border border-matcha-200 text-center space-y-3">
-                                    <p class="text-xs text-slate-600">Pratinjau dokumen Google Drive terintegrasi:</p>
-                                    <a href="#" target="_blank" class="inline-flex items-center space-x-2 px-5 py-2.5 bg-matcha-600 hover:bg-matcha-700 text-white rounded-xl text-xs font-bold shadow-md transition">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                        <span>Buka Dokumen Modul Ajar Siklus 2</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Video Praktik Preview -->
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-base text-matcha-900 flex items-center space-x-2">
-                                <i data-lucide="video" class="w-5 h-5 text-matcha-600"></i>
-                                <span>Video Pelaksanaan Praktik Mengajar</span>
-                            </h4>
-                            <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-slate-900 shadow-sm h-80 relative flex items-center justify-center group">
-                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500" alt="Video thumbnail">
-                                <div class="relative z-10 text-center space-y-3 p-4">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-match-600 bg-matcha-600/90 flex items-center text-white shadow-xl cursor-pointer hover:scale-110 transition">
-                                        <i data-lucide="play" class="w-8 h-8 ml-1"></i>
-                                    </div>
-                                    <p class="text-white text-xs font-bold drop-shadow">Video Pembelajaran Siklus 2 (Durasi 35 Menit)</p>
-                                    <span class="inline-block px-3 py-1 rounded-full bg-black/60 text-white text-[10px]">Embed Google Drive / YouTube</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <span class="text-xs font-bold px-4 py-2 bg-gradient-to-r from-matcha-100 to-lilac-100 rounded-xl text-slate-800 border border-lilac-200">Fase D • Kelas 9.10 SMPN 6 Singaraja</span>
                 </div>
 
-                <!-- SIKLUS 3 CONTENT -->
-                <div x-show="activeTab === 'siklus3'" x-cloak class="space-y-6">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-4 border-b border-matcha-200 gap-4">
-                        <div>
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">Terverifikasi GP & DPL</span>
-                            <h3 class="text-2xl font-bold text-matcha-900 mt-1">Siklus 3: Jaringan Komputer & Internet (Ruang Publik Virtual)</h3>
-                            <p class="text-sm text-slate-600">Eksplorasi keamanan digital, etika berinternet, dan simulasi jaringan.</p>
-                        </div>
-                        <span class="text-xs font-semibold px-4 py-2 bg-matcha-100 rounded-xl text-matcha-800">SMPN 6 Singaraja • Kelas 9.5</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-base text-matcha-900 flex items-center space-x-2">
-                                <i data-lucide="file-text" class="w-5 h-5 text-matcha-600"></i>
-                                <span>Modul Ajar / RPP Diferensiasi</span>
-                            </h4>
-                            <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-white shadow-sm h-80 flex flex-col justify-between p-4">
-                                <div class="space-y-2">
-                                    <div class="flex items-center justify-between text-xs text-slate-500 font-semibold">
-                                        <span>Format: Google Docs / PDF</span>
-                                        <span class="text-emerald-600">Status: Sempurna (100)</span>
-                                    </div>
-                                    <p class="text-sm text-slate-700 font-medium">Pembelajaran berbasis PBL dengan media interaktif web HTML5.</p>
-                                </div>
-                                <div class="bg-matcha-50 p-4 rounded-xl border border-matcha-200 text-center space-y-3">
-                                    <a href="#" target="_blank" class="inline-flex items-center space-x-2 px-5 py-2.5 bg-matcha-600 hover:bg-matcha-700 text-white rounded-xl text-xs font-bold shadow-md transition">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                        <span>Buka Dokumen Modul Ajar Siklus 3</span>
-                                    </a>
-                                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Modul Ajar Preview -->
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-base text-slate-900 flex items-center space-x-2">
+                            <div class="p-2 rounded-xl bg-matcha-100 text-matcha-700">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
                             </div>
-                        </div>
-
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-base text-matcha-900 flex items-center space-x-2">
-                                <i data-lucide="video" class="w-5 h-5 text-matcha-600"></i>
-                                <span>Video Pelaksanaan Praktik Mengajar</span>
-                            </h4>
-                            <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-slate-900 shadow-sm h-80 relative flex items-center justify-center group">
-                                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500" alt="Video thumbnail">
-                                <div class="relative z-10 text-center space-y-3 p-4">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-matcha-600/90 flex items-center text-white shadow-xl cursor-pointer hover:scale-110 transition">
-                                        <i data-lucide="play" class="w-8 h-8 ml-1"></i>
-                                    </div>
-                                    <p class="text-white text-xs font-bold drop-shadow">Video Pembelajaran Siklus 3 (Durasi 40 Menit)</p>
-                                    <span class="inline-block px-3 py-1 rounded-full bg-black/60 text-white text-[10px]">Embed Google Drive / YouTube</span>
+                            <span>Modul Ajar / RPP Diferensiasi & LKPD</span>
+                        </h4>
+                        <div class="rounded-2xl border border-lilac-200 overflow-hidden bg-white/90 shadow-sm h-80 flex flex-col justify-between p-6">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between text-xs text-slate-500 font-semibold">
+                                    <span>Format: Google Docs / PDF</span>
+                                    <span class="text-emerald-600 font-bold flex items-center"><i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1 inline"></i> Terverifikasi GP & DPL</span>
                                 </div>
+                                <h5 class="font-bold text-slate-900 text-base">Modul Ajar Berbasis UbD & Diferensiasi Proses</h5>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Memuat perencanaan mundur (backward design), lembar kerja peserta didik (LKPD) berbasis pemecahan masalah kelompok, instrumen asesmen formatif, serta rubrik penilaian performa siswa.
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-r from-matcha-50 to-lilac-50 p-4 rounded-xl border border-lilac-200 text-center space-y-3">
+                                <p class="text-xs text-slate-600 font-medium">Akses berkas lengkap melalui Google Drive:</p>
+                                <a href="#" target="_blank" class="inline-flex items-center space-x-2 px-6 py-2.5 bg-gradient-to-r from-matcha-600 to-lilac-600 hover:from-matcha-700 hover:to-lilac-700 text-white rounded-xl text-xs font-bold shadow-md transition">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    <span>Buka Dokumen Modul Ajar (PDF)</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- SIKLUS 4 CONTENT (UNGGULAN) -->
-                <div x-show="activeTab === 'siklus4'" x-cloak class="space-y-6">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-4 border-b border-matcha-200 gap-4">
-                        <div>
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-lilac-200 text-lilac-700">Siklus Puncak / Unggulan</span>
-                            <h3 class="text-2xl font-bold text-matcha-900 mt-1">Siklus 4: Analisis Data & Dampak Sosial Informatika</h3>
-                            <p class="text-sm text-slate-600">Penerapan gamifikasi web interaktif dan kolaborasi kelompok berbasis Tri Hita Karana.</p>
-                        </div>
-                        <span class="text-xs font-semibold px-4 py-2 bg-matcha-100 rounded-xl text-matcha-800">SMPN 6 Singaraja • Kelas 9.10</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-base text-matcha-900 flex items-center space-x-2">
-                                <i data-lucide="file-text" class="w-5 h-5 text-matcha-600"></i>
-                                <span>Modul Ajar / RPP Diferensiasi & LKPD</span>
-                            </h4>
-                            <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-white shadow-sm h-80 flex flex-col justify-between p-4">
-                                <div class="space-y-2">
-                                    <div class="flex items-center justify-between text-xs text-slate-500 font-semibold">
-                                        <span>Format: Google Docs / PDF</span>
-                                        <span class="text-emerald-600">Nilai: Sempurna (100)</span>
-                                    </div>
-                                    <p class="text-sm text-slate-700 font-medium">Modul Ajar komprehensif dengan instrumen asesmen formatif dan rubrik penilaian lengkap.</p>
-                                </div>
-                                <div class="bg-matcha-50 p-4 rounded-xl border border-matcha-200 text-center space-y-3">
-                                    <a href="#" target="_blank" class="inline-flex items-center space-x-2 px-5 py-2.5 bg-matcha-600 hover:bg-matcha-700 text-white rounded-xl text-xs font-bold shadow-md transition">
-                                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                                        <span>Buka Dokumen Modul Ajar Siklus 4 (Unggulan)</span>
-                                    </a>
-                                </div>
+                    <!-- Video Praktik Preview -->
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-base text-slate-900 flex items-center space-x-2">
+                            <div class="p-2 rounded-xl bg-lilac-100 text-lilac-700">
+                                <i data-lucide="video" class="w-5 h-5"></i>
                             </div>
-                        </div>
-
-                        <div class="space-y-3">
-                            <h4 class="font-bold text-base text-matcha-900 flex items-center space-x-2">
-                                <i data-lucide="video" class="w-5 h-5 text-matcha-600"></i>
-                                <span>Video Pelaksanaan Praktik Mengajar Terbaik</span>
-                            </h4>
-                            <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-slate-900 shadow-sm h-80 relative flex items-center justify-center group">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500" alt="Video thumbnail">
-                                <div class="relative z-10 text-center space-y-3 p-4">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-matcha-600/90 flex items-center text-white shadow-xl cursor-pointer hover:scale-110 transition">
-                                        <i data-lucide="play" class="w-8 h-8 ml-1"></i>
+                            <span>Video Pelaksanaan Praktik Pembelajaran</span>
+                        </h4>
+                        <div class="rounded-2xl border border-lilac-200 overflow-hidden bg-slate-900 shadow-sm h-80 relative flex items-center justify-center group">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500" alt="Video thumbnail">
+                            <div class="relative z-10 text-center space-y-3 p-4">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-matcha-500 to-lilac-500 p-0.5 shadow-xl cursor-pointer hover:scale-110 transition">
+                                    <div class="w-full h-full bg-slate-900/80 rounded-full flex items-center justify-center text-white">
+                                        <i data-lucide="play" class="w-8 h-8 ml-1 text-lilac-200"></i>
                                     </div>
-                                    <p class="text-white text-xs font-bold drop-shadow">Video Praktik Mengajar Siklus 4 (Durasi 45 Menit)</p>
-                                    <span class="inline-block px-3 py-1 rounded-full bg-black/60 text-white text-[10px]">Embed Google Drive / YouTube (Full HD)</span>
                                 </div>
+                                <p class="text-white text-xs font-bold drop-shadow">Rekaman Pembelajaran Siklus 4 (Durasi 45 Menit)</p>
+                                <span class="inline-block px-3 py-1 rounded-full bg-black/60 text-white text-[10px] backdrop-blur-sm">Embed Video Google Drive / YouTube</span>
                             </div>
                         </div>
                     </div>
@@ -417,114 +309,116 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
         <!-- 3. ANALISIS ARTIFAK MENDALAM & KAJIAN TEORI -->
         <section id="analisis" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="px-3 py-1 rounded-full bg-lilac-200 text-lilac-700 text-xs font-bold uppercase tracking-wider">Kajian Akademik (20 Poin)</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-matcha-900">Analisis Artifak & Integrasi Teori Pedagogis</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Refleksi mendalam terhadap efektivitas rancangan pembelajaran, kendala di kelas, solusi terapan, dan landasan teori.</p>
+                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Kajian Akademik</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Analisis Artifak & Integrasi Teori Pedagogis</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Refleksi kritis terhadap pelaksanaan pembelajaran, pemetaan kendala, solusi kontekstual, dan landasan teori.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1: Konteks & Tujuan -->
-                <div class="glass-card p-6 rounded-3xl shadow-sm border border-matcha-200 space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-matcha-100 flex items-center text-matcha-700 font-bold justify-center">
+                <div class="glass-card p-7 rounded-3xl shadow-sm border border-white space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-matcha-100 to-matcha-200 text-matcha-800 flex items-center justify-center font-bold">
                         <i data-lucide="target" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-matcha-900">Konteks & Tujuan Pembelajaran</h3>
+                    <h3 class="font-bold text-lg text-slate-900">Konteks & Tujuan Pembelajaran</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Pembelajaran dirancang berdasarkan analisis karakteristik peserta didik Fase D SMP Negeri 6 Singaraja yang heterogen. Tujuan pembelajaran dirumuskan secara operasional menggunakan taksonomi Bloom revisi (C4-C6) dengan penekanan pada HOTS (*Higher Order Thinking Skills*).
+                        Dirancang berdasarkan hasil asesmen diagnostik gaya belajar siswa Fase D SMPN 6 Singaraja. Tujuan difokuskan pada penalaran kritis (C4-C6) materi dampak sosial informatika secara kontekstual.
                     </p>
                 </div>
 
                 <!-- Card 2: Kelebihan & Inovasi -->
-                <div class="glass-card p-6 rounded-3xl shadow-sm border border-matcha-200 space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center text-emerald-700 font-bold justify-center">
+                <div class="glass-card p-7 rounded-3xl shadow-sm border border-white space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-lilac-100 to-lilac-200 text-lilac-800 flex items-center justify-center font-bold">
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-matcha-900">Kelebihan & Inovasi Produk</h3>
+                    <h3 class="font-bold text-lg text-slate-900">Kelebihan & Inovasi Produk</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Mengintegrasikan media pembelajaran interaktif berbasis web HTML5 dan gamifikasi (labirin edukasi). Peserta didik terlibat aktif dalam kelompok kooperatif, meningkatkan motivasi belajar serta pemahaman konsep informatika secara kontekstual.
+                        Penggunaan gim edukasi labirin interaktif berbasis HTML5 yang mampu meningkatkan partisipasi aktif peserta didik, rasa ingin tahu, dan pemahaman konsep secara menyenangkan.
                     </p>
                 </div>
 
                 <!-- Card 3: Kendala & Solusi -->
-                <div class="glass-card p-6 rounded-3xl shadow-sm border border-matcha-200 space-y-4">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-100 flex items-center text-amber-700 font-bold justify-center">
+                <div class="glass-card p-7 rounded-3xl shadow-sm border border-white space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 flex items-center justify-center font-bold">
                         <i data-lucide="shield-alert" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-matcha-900">Kendala Lapangan & Solusi</h3>
+                    <h3 class="font-bold text-lg text-slate-900">Kendala & Solusi Terapan</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        <strong>Kendala:</strong> Keterbatasan perangkat komputer dan koneksi internet di beberapa titik.<br>
-                        <strong>Solusi:</strong> Menerapkan strategi pembelajaran kelompok *hybrid* (1 komputer untuk 2-3 peserta didik) serta menyediakan media offline interaktif.
+                        <strong>Kendala:</strong> Variasi kecepatan perangkat laboratorium.<br>
+                        <strong>Solusi:</strong> Pembagian peran kelompok homogen-heterogen dan penyediaan alternatif media offline yang dapat diakses mandiri.
                     </p>
                 </div>
             </div>
 
-            <!-- TEORI PEDAGOGIS INTEGRASI -->
-            <div class="mt-8 glass-card p-8 rounded-[2.5xl] shadow-xl border border-matcha-200 space-y-6">
-                <h3 class="font-bold text-xl text-matcha-900 flex items-center space-x-2">
-                    <i data-lucide="book-marked" class="w-6 h-6 text-matcha-600"></i>
+            <!-- TEORI PEDAGOGIS INTEGRASI (50:50 MATCH A & LILAC) -->
+            <div class="mt-8 glass-card p-8 sm:p-10 rounded-[2.5rem] shadow-xl border border-white space-y-6">
+                <h3 class="font-black text-xl text-slate-900 flex items-center space-x-3">
+                    <div class="p-2 rounded-xl bg-gradient-to-r from-matcha-500 to-lilac-500 text-white">
+                        <i data-lucide="book-marked" class="w-5 h-5"></i>
+                    </div>
                     <span>Landasan Teori Pedagogis Terintegrasi</span>
                 </h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white/80 p-5 rounded-2xl border border-matcha-100 space-y-2">
+                    <div class="bg-white/80 p-5 rounded-2xl border border-matcha-200/60 space-y-2">
                         <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-matcha-100 text-matcha-800">UbD & UDL</span>
-                        <h4 class="font-bold text-matcha-900 text-sm">Understanding by Design & Universal Design for Learning</h4>
-                        <p class="text-xs text-slate-600">Perencanaan mundur (*backward design*) memastikan asesmen selaras dengan tujuan, sementara UDL menyediakan akses belajar fleksibel bagi seluruh siswa.</p>
+                        <h4 class="font-bold text-slate-900 text-sm">Understanding by Design & UDL</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Perencanaan berbasis *backward design* serta penyediaan akses media visual dan audio bagi keberagaman cara belajar siswa.</p>
                     </div>
 
-                    <div class="bg-white/80 p-5 rounded-2xl border border-matcha-100 space-y-2">
-                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-matcha-100 text-matcha-800">TaRL & CRT</span>
-                        <h4 class="font-bold text-matcha-900 text-sm">Teaching at the Right Level & Culturally Responsive Teaching</h4>
-                        <p class="text-xs text-slate-600">Pembelajaran disesuaikan dengan capaian tingkat kemampuan kognitif siswa dan mengintegrasikan latar belakang budaya lokal.</p>
+                    <div class="bg-white/80 p-5 rounded-2xl border border-lilac-200/60 space-y-2">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-lilac-100 text-lilac-800">TaRL & CRT</span>
+                        <h4 class="font-bold text-slate-900 text-sm">Teaching at Right Level & CRT</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Penyusunan tingkatan soal sesuai kesiapan kognitif siswa dan integrasi norma kearifan lokal Bali dalam diskusi.</p>
                     </div>
 
-                    <div class="bg-white/80 p-5 rounded-2xl border border-matcha-100 space-y-2">
-                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-matcha-100 text-matcha-800">TPACK & THK</span>
-                        <h4 class="font-bold text-matcha-900 text-sm">TPACK & Tri Hita Karana</h4>
-                        <p class="text-xs text-slate-600">Menggabungkan penguasaan teknologi, pedagogi, dan konten materi, serta nilai kearifan lokal Bali (*Tri Hita Karana*) dalam relasi kelas.</p>
+                    <div class="bg-white/80 p-5 rounded-2xl border border-gradient-to-r from-matcha-200 to-lilac-200 space-y-2">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800">TPACK & Tri Hita Karana</span>
+                        <h4 class="font-bold text-slate-900 text-sm">TPACK & Filosofi Tri Hita Karana</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Sinergi pengetahuan teknologi, pedagogi, konten, serta penanaman nilai keharmonisan sesama manusia (*Pawongan*) di kelas.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. GALERI DOKUMENTASI SIKLUS PPL -->
+        <!-- 4. GALERI DOKUMENTASI SIKLUS PPL (4 SIKLUS) -->
         <section id="galeri" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="px-3 py-1 rounded-full bg-matcha-200 text-matcha-800 text-xs font-bold uppercase tracking-wider">Dokumentasi Lapangan (20 Poin)</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-matcha-900">Galeri Foto Kegiatan PPL Mandiri</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Masing-masing siklus menampilkan 4 foto kegiatan kelas autentik dengan deskripsi dan tombol zoom lightbox.</p>
+                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Dokumentasi Praktik</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Galeri Dokumentasi 4 Siklus</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Masing-masing siklus menampilkan 4 foto kegiatan kelas autentik beserta deskripsi dan viewer modal.</p>
             </div>
 
-            <!-- Gallery Tab Menu -->
+            <!-- Gallery Tab Menu 50:50 Warna -->
             <div class="flex justify-center mb-8">
-                <div class="inline-flex p-1.5 rounded-2xl glass-card shadow-sm border border-matcha-200 flex-wrap justify-center gap-1">
-                    <button @click="galleryTab = 's1'" :class="galleryTab === 's1' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-4 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 1</button>
-                    <button @click="galleryTab = 's2'" :class="galleryTab === 's2' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-4 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 2</button>
-                    <button @click="galleryTab = 's3'" :class="galleryTab === 's3' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-4 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 3</button>
-                    <button @click="galleryTab = 's4'" :class="galleryTab === 's4' ? 'bg-matcha-600 text-white shadow-md' : 'text-matcha-800 hover:bg-matcha-100'" class="px-4 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 4</button>
+                <div class="inline-flex p-1.5 rounded-2xl glass-card shadow-sm border border-lilac-200 flex-wrap justify-center gap-1.5">
+                    <button @click="galleryTab = 's1'" :class="galleryTab === 's1' ? 'bg-gradient-to-r from-matcha-600 to-lilac-600 text-white shadow-md' : 'text-slate-700 hover:bg-white/60'" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 1</button>
+                    <button @click="galleryTab = 's2'" :class="galleryTab === 's2' ? 'bg-gradient-to-r from-matcha-600 to-lilac-600 text-white shadow-md' : 'text-slate-700 hover:bg-white/60'" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 2</button>
+                    <button @click="galleryTab = 's3'" :class="galleryTab === 's3' ? 'bg-gradient-to-r from-matcha-600 to-lilac-600 text-white shadow-md' : 'text-slate-700 hover:bg-white/60'" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 3</button>
+                    <button @click="galleryTab = 's4'" :class="galleryTab === 's4' ? 'bg-gradient-to-r from-matcha-600 to-lilac-600 text-white shadow-md' : 'text-slate-700 hover:bg-white/60'" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm transition">Siklus 4</button>
                 </div>
             </div>
 
             <!-- GALLERY GRID (4 PHOTOS PER CYCLE) -->
-            <div class="glass-card p-6 sm:p-8 rounded-[2.5rem] shadow-xl border border-matcha-200">
+            <div class="glass-card p-6 sm:p-8 rounded-[2.5rem] shadow-xl border border-white">
                 
                 <!-- SIKLUS 1 PHOTOS -->
                 <div x-show="galleryTab === 's1'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
-                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Observasi Awal & Orientasi Kelas', desc: 'Pengenalan lingkungan belajar di SMPN 6 Singaraja.'},
-                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Asesmen Diagnostik Siswa', desc: 'Pemetaan gaya belajar dan kemampuan awal peserta didik.'},
-                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Bersama Guru Pamong', desc: 'Koordinasi rancangan pembelajaran kolaboratif.'},
-                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Refleksi Siklus 1 bersama DPL', desc: 'Evaluasi pelaksanaan praktik terbimbing awal.'}
+                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Observasi Awal Kelas', desc: 'Orientasi awal lingkungan SMPN 6 Singaraja.'},
+                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Asesmen Diagnostik', desc: 'Pemetaan gaya belajar peserta didik.'},
+                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Bersama GP', desc: 'Koordinasi rancangan modul terbimbing.'},
+                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Refleksi Siklus 1', desc: 'Evaluasi awal praktik mengajar terbimbing.'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-matcha-200 shadow-sm cursor-pointer hover:shadow-lg transition">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
                             <div class="h-48 overflow-hidden relative">
                                 <img :src="photo.img" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-matcha-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                                    <span class="bg-white/90 text-matcha-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
+                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                    <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
                             </div>
                             <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-matcha-900 text-sm" x-text="photo.title"></h4>
+                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
                                 <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
@@ -534,20 +428,20 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
                 <!-- SIKLUS 2 PHOTOS -->
                 <div x-show="galleryTab === 's2'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
-                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Penyampaian Materi Berpikir Komputasional', desc: 'Penggunaan media visual interaktif di kelas 9.'},
-                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Kerjasama Kelompok LKPD', desc: 'Peserta didik aktif mendiskusikan dekomposisi masalah.'},
-                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Presentasi Hasil Proyek', desc: 'Melatih kemampuan komunikasi dan bernalar kritis.'},
-                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Asesmen Formatif & Refleksi', desc: 'Umpan balik langsung dari guru dan rekan sejawat.'}
+                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Berpikir Komputasional', desc: 'Penyampaian materi dekomposisi masalah.'},
+                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Kelompok LKPD', desc: 'Pengerjaan tugas kolaboratif siswa.'},
+                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Presentasi Proyek', desc: 'Penyampaian hasil karya siswa depan kelas.'},
+                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Asesmen Formatif', desc: 'Umpan balik langsung dari guru pratama.'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-matcha-200 shadow-sm cursor-pointer hover:shadow-lg transition">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
                             <div class="h-48 overflow-hidden relative">
                                 <img :src="photo.img" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-matcha-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                                    <span class="bg-white/90 text-matcha-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
+                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                    <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
                             </div>
                             <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-matcha-900 text-sm" x-text="photo.title"></h4>
+                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
                                 <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
@@ -557,20 +451,20 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
                 <!-- SIKLUS 3 PHOTOS -->
                 <div x-show="galleryTab === 's3'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
-                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Simulasi Jaringan Komputer', desc: 'Eksplorasi ruang publik virtual yang aman.'},
-                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Bimbingan Kelompok Kecil (TaRL)', desc: 'Pendampingan khusus bagi kelompok yang memerlukan.'},
-                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Demonstrasi Etika Digital', desc: 'Diskusi interaktif seputar keamanan siber.'},
-                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Uji Coba LKPD Interaktif', desc: 'Penerapan lembar kerja berbasis web.'}
+                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Jaringan Komputer', desc: 'Simulasi etika ruang publik virtual.'},
+                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Bimbingan Individu', desc: 'Pendampingan TaRL bagi siswa.'},
+                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Keamanan Digital', desc: 'Materi literasi internet aman.'},
+                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Evaluasi Pembelajaran', desc: 'Pemberian tes formatif interaktif.'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-matcha-200 shadow-sm cursor-pointer hover:shadow-lg transition">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
                             <div class="h-48 overflow-hidden relative">
                                 <img :src="photo.img" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-matcha-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                                    <span class="bg-white/90 text-matcha-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
+                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                    <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
                             </div>
                             <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-matcha-900 text-sm" x-text="photo.title"></h4>
+                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
                                 <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
@@ -580,20 +474,20 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
                 <!-- SIKLUS 4 PHOTOS -->
                 <div x-show="galleryTab === 's4'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <template x-for="(photo, index) in [
-                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Praktik Puncak Siklus 4', desc: 'Implementasi gamifikasi web labirin edukasi.'},
-                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Kolaborasi Tri Hita Karana', desc: 'Menjunjung keharmonisan sosial dalam kelompok.'},
-                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Evaluasi Bersama DPL & Guru Pamong', desc: 'Sidang refleksi akhir PPL mandiri.'},
-                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Selebrasi Keberhasilan Siswa', desc: 'Apresiasi karya terbaik peserta didik.'}
+                        {img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Praktik Siklus Unggulan', desc: 'Penerapan gim edukasi labirin interaktif.'},
+                        {img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Kerjasama Tri Hita Karana', desc: 'Kolaborasi harmonis kelompok siswa.'},
+                        {img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Supervisi DPL & GP', desc: 'Penilaian akhir praktik mengajar mandiri.'},
+                        {img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Refleksi Penutup PPL', desc: 'Pemberian apresiasi pada peserta didik.'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-matcha-200 shadow-sm cursor-pointer hover:shadow-lg transition">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
                             <div class="h-48 overflow-hidden relative">
                                 <img :src="photo.img" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-matcha-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                                    <span class="bg-white/90 text-matcha-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
+                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                    <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
                             </div>
                             <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-matcha-900 text-sm" x-text="photo.title"></h4>
+                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
                                 <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
@@ -606,131 +500,100 @@ class="bg-matcha-50 text-matcha-900 antialiased selection:bg-matcha-200 selectio
         <!-- 5. REFLEKSI & RENCANA TINDAK LANJUT -->
         <section id="refleksi" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="px-3 py-1 rounded-full bg-lilac-200 text-lilac-700 text-xs font-bold uppercase tracking-wider">Refleksi Akhir (20 Poin)</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-matcha-900">Refleksi Diri & Rencana Tindak Lanjut</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Sintesis filosofi Ki Hadjar Dewantara, evaluasi kekuatan/kelemahan diri, serta roadmap pengembangan profesi berkelanjutan.</p>
+                <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Refleksi Akhir</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Refleksi Diri & Rencana Tindak Lanjut</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Sintesis filosofi Ki Hadjar Dewantara, evaluasi personal, serta roadmap pengembangan profesi berkelanjutan.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Filosofi KHD & Profil Guru Masa Depan -->
-                <div class="glass-card p-8 rounded-[2.5rem] shadow-xl border border-matcha-200 space-y-6">
+                <!-- Filosofi KHD -->
+                <div class="glass-card p-8 sm:p-10 rounded-[2.5rem] shadow-xl border border-white space-y-6">
                     <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 rounded-2xl bg-matcha-600 text-white flex items-center justify-center font-bold">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-matcha-500 to-matcha-600 text-white flex items-center justify-center font-bold shadow-md">
                             <i data-lucide="compass" class="w-6 h-6"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-xl text-matcha-900">Refleksi Filosofis KHD</h3>
-                            <p class="text-xs text-matcha-700">Pendidikan yang Menuntun Kodrat Anak</p>
+                            <h3 class="font-black text-xl text-slate-900">Refleksi Filosofis KHD</h3>
+                            <p class="text-xs font-semibold text-matcha-700">Pendidikan yang Menuntun Kodrat Zaman</p>
                         </div>
                     </div>
                     
-                    <p class="text-sm text-slate-700 leading-relaxed">
-                        Berdasarkan pemikiran Ki Hadjar Dewantara, peran guru bukan sekadar mengajar transfer ilmu pengetahuan, melainkan menuntun segala kekuatan kodrat yang ada pada anak agar mereka dapat mencapai keselamatan dan kebahagiaan setinggi-tingginya. Sebagai guru Informatika masa depan, saya berkomitmen menghadirkan pembelajaran yang memerdekakan, adaptif terhadap perkembangan teknologi, serta berlandaskan budi pekerti luhur.
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Pendidikan adalah proses menuntun segala kekuatan kodrat anak agar mereka mencapai keselamatan dan kebahagiaan setinggi-tingginya. Sebagai guru Informatika, saya berikhtiar menghadirkan pembelajaran yang memerdekakan pikiran siswa, adaptif terhadap perkembangan teknologi digital, namun tetap memiliki akar kebudayaan dan budi pekerti yang kokoh.
                     </p>
 
-                    <div class="bg-matcha-50 p-5 rounded-2xl border border-matcha-200 space-y-2">
-                        <h4 class="font-bold text-matcha-900 text-sm">Model Guru Profesional yang Dituju:</h4>
+                    <div class="bg-gradient-to-r from-matcha-50 to-lilac-50 p-5 rounded-2xl border border-lilac-200/60 space-y-2">
+                        <h4 class="font-bold text-slate-900 text-sm">Model Guru Masa Depan yang Dituju:</h4>
                         <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside">
-                            <li>Reflektif dan senantiasa melakukan perbaikan berkelanjutan.</li>
-                            <li>Berpusat pada peserta didik (*student-centered learning*).</li>
-                            <li>Inovatif dalam pemanfaatan EdTech dan kecerdasan buatan.</li>
-                            <li>Kolaboratif dan inklusif dalam ekosistem sekolah.</li>
+                            <li>Reflektif dan pembelajar sepanjang hayat (*lifelong learner*).</li>
+                            <li>Inovatif dalam pengembangan media EdTech interaktif.</li>
+                            <li>Empatis dan mengutamakan keselamatan psikologis siswa di kelas.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Rencana Tindak Lanjut (RTL) Konkret -->
-                <div class="glass-card p-8 rounded-[2.5rem] shadow-xl border border-matcha-200 space-y-6">
+                <div class="glass-card p-8 sm:p-10 rounded-[2.5rem] shadow-xl border border-white space-y-6">
                     <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 rounded-2xl bg-lilac-500 text-white flex items-center justify-center font-bold">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-r from-lilac-500 to-lilac-600 text-white flex items-center justify-center font-bold shadow-md">
                             <i data-lucide="trending-up" class="w-6 h-6"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-xl text-matcha-900">Rencana Tindak Lanjut (RTL)</h3>
-                            <p class="text-xs text-lilac-700">Roadmap Pengembangan Keprofesian Berkelanjutan</p>
+                            <h3 class="font-black text-xl text-slate-900">Rencana Tindak Lanjut (RTL)</h3>
+                            <p class="text-xs font-semibold text-lilac-700">Roadmap Pengembangan Keprofesian</p>
                         </div>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-matcha-200 text-matcha-800 font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</div>
+                        <div class="flex items-start space-x-3.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-r from-matcha-500 to-lilac-500 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5 shadow-sm">1</div>
                             <div>
-                                <h4 class="font-bold text-matcha-900 text-sm">Jangka Pendek (0 - 6 Bulan ke Depan)</h4>
-                                <p class="text-xs text-slate-600">Aktif mengikuti komunitas praktisi (MGMP Informatika), menyebarluaskan praktik baik media web pembelajaran, dan menyelesaikan penugasan sertifikasi pendidik.</p>
+                                <h4 class="font-bold text-slate-900 text-sm">Jangka Pendek (0 - 6 Bulan)</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">Aktif dalam Komunitas Praktisi MGMP Informatika Buleleng dan menyebarluaskan media pembelajaran berbasis web ke rekan sejawat.</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-matcha-200 text-matcha-800 font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</div>
+                        <div class="flex items-start space-x-3.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-r from-matcha-500 to-lilac-500 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5 shadow-sm">2</div>
                             <div>
-                                <h4 class="font-bold text-matcha-900 text-sm">Jangka Menengah (6 - 1 Tahun ke Depan)</h4>
-                                <p class="text-xs text-slate-600">Mengembangkan penelitian tindakan kelas (PTK) terkait efektivitas gamifikasi digital dalam meningkatkan pemahaman berpikir komputasional siswa.</p>
+                                <h4 class="font-bold text-slate-900 text-sm">Jangka Menengah (6 - 12 Bulan)</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">Melakukan Penelitian Tindakan Kelas (PTK) terpublikasi mengenai dampak gamifikasi digital terhadap keterampilan berpikir komputasional.</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-matcha-200 text-matcha-800 font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</div>
+                        <div class="flex items-start space-x-3.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-r from-matcha-500 to-lilac-500 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5 shadow-sm">3</div>
                             <div>
-                                <h4 class="font-bold text-matcha-900 text-sm">Jangka Panjang (> 1 Tahun ke Depan)</h4>
-                                <p class="text-xs text-slate-600">Berkontribusi sebagai guru penggerak / instruktur pelatihan EdTech bagi rekan sejawat dan mentor bagi calon guru masa depan.</p>
+                                <h4 class="font-bold text-slate-900 text-sm">Jangka Panjang (> 1 Tahun)</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">Mengikuti Program Guru Penggerak dan berkontribusi aktif sebagai pengembang kurikulum EdTech lokal.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. KONTAK & PROFIL LENGKAP -->
-        <section id="kontak" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card p-8 sm:p-12 rounded-[2.5rem] shadow-xl border border-matcha-200 bg-gradient-to-br from-white via-matcha-50 to-lilac-50 text-center space-y-6">
-                <div class="w-16 h-16 mx-auto rounded-3xl bg-matcha-600 text-white flex items-center justify-center shadow-lg">
-                    <i data-lucide="mail" class="w-8 h-8"></i>
-                </div>
-                
-                <div class="max-w-2xl mx-auto space-y-2">
-                    <h2 class="text-3xl font-extrabold text-matcha-900">Hubungi & Terhubung dengan Saya</h2>
-                    <p class="text-slate-600 text-sm">Terbuka untuk kolaborasi, diskusi seputar pendidikan informatika, maupun pengembangan pembelajaran inovatif.</p>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap-4 pt-2">
-                    <a href="mailto:ernabudiartini@gmail.com" class="px-6 py-3.5 rounded-2xl bg-matcha-600 hover:bg-matcha-700 text-white font-bold text-sm shadow-md transition flex items-center space-x-2">
-                        <i data-lucide="mail" class="w-4 h-4"></i>
-                        <span>Kirim Email</span>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-matcha-100 text-matcha-800 font-bold text-sm border border-matcha-300 shadow-sm transition flex items-center space-x-2">
-                        <i data-lucide="linkedin" class="w-4 h-4 text-blue-600"></i>
-                        <span>LinkedIn Profil</span>
-                    </a>
-                    <a href="https://wa.me/6281234567890" target="_blank" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-matcha-100 text-matcha-800 font-bold text-sm border border-matcha-300 shadow-sm transition flex items-center space-x-2">
-                        <i data-lucide="phone-call" class="w-4 h-4 text-emerald-600"></i>
-                        <span>WhatsApp</span>
-                    </a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-matcha-900 text-white py-12 border-t border-matcha-800">
+    <!-- FUTURISTIC MINIMALIST FOOTER -->
+    <footer class="bg-gradient-to-r from-matcha-900 via-slate-900 to-lilac-900 text-white py-10 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left space-y-1">
-                <p class="font-bold text-lg">Ni Luh Erna Budiartini, S.Pd.</p>
-                <p class="text-xs text-matcha-200">E-Portofolio PPL Mandiri • PPG Prajabatan Universitas Pendidikan Ganesha</p>
+                <p class="font-black text-lg tracking-tight">Ni Luh Erna Budiartini, S.Pd.</p>
+                <p class="text-xs text-lilac-200/80">E-Portofolio PPL Mandiri • PPG Prajabatan Universitas Pendidikan Ganesha</p>
             </div>
-            <div class="text-center md:text-right text-xs text-matcha-300 space-y-1">
-                <p>&copy; 2026 Hak Cipta Dilindungi. Dibuat dengan standar nilai akademik tertinggi (100/100).</p>
-                <p>SMP Negeri 6 Singaraja • Buleleng, Bali</p>
+            <div class="text-center md:text-right text-xs text-slate-400 space-y-1">
+                <p>&copy; 2026 Hak Cipta Dilindungi. SMP Negeri 6 Singaraja, Buleleng, Bali.</p>
             </div>
         </div>
     </footer>
 
     <!-- LIGHTBOX MODAL -->
-    <div x-show="lightboxOpen" x-cloak class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4" @click.self="lightboxOpen = false">
-        <div class="relative bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl p-6 space-y-4">
+    <div x-show="lightboxOpen" x-cloak class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4" @click.self="lightboxOpen = false">
+        <div class="relative bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl p-6 space-y-4 border border-lilac-200">
             <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg text-matcha-900">Dokumentasi Kegiatan PPL</h3>
-                <button @click="lightboxOpen = false" class="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700">
+                <h3 class="font-bold text-lg text-slate-900">Dokumentasi Kegiatan PPL</h3>
+                <button @click="lightboxOpen = false" class="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
