@@ -42,8 +42,7 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-                        dyslexia: ['Comic Sans MS', 'Arial', 'sans-serif']
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
                     }
                 }
             }
@@ -83,30 +82,16 @@
     </style>
 </head>
 <body x-data="{ 
-    dyslexiaMode: false, 
     galleryTab: 's1',
     mobileMenuOpen: false,
     lightboxOpen: false,
     lightboxImg: '',
     lightboxCaption: ''
 }" 
-:class="dyslexiaMode ? 'font-dyslexia' : 'font-sans'" 
-class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 antialiased selection:bg-lilac-200 selection:text-lilac-900 min-h-screen">
-
-    <!-- TOP ACCESSIBILITY & INFORMATION BAR -->
-    <div class="bg-gradient-to-r from-matcha-900 via-slate-900 to-lilac-900 text-white text-xs py-2 px-4 sticky top-0 z-50 flex justify-between items-center shadow-md">
-        <div class="flex items-center space-x-2">
-            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-medium tracking-wide">PPG Prajabatan • Bidang Studi Informatika • SMP Negeri 6 Singaraja</span>
-        </div>
-        <button @click="dyslexiaMode = !dyslexiaMode" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-3 py-1 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5">
-            <i data-lucide="eye" class="w-3.5 h-3.5 inline"></i>
-            <span x-text="dyslexiaMode ? 'Mode Normal' : 'Mode Ramah Disleksia'"></span>
-        </button>
-    </div>
+class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 antialiased selection:bg-lilac-200 selection:text-lilac-900 min-h-screen">
 
     <!-- STICKY FUTURISTIC NAVBAR -->
-    <header class="sticky top-[37px] z-40 glass-nav border-b border-white/50 shadow-sm transition-all duration-300">
+    <header class="sticky top-0 z-40 glass-nav border-b border-white/50 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#beranda" class="flex items-center space-x-3 group">
                 <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-matcha-500 to-lilac-500 p-0.5 shadow-md group-hover:scale-105 transition">
@@ -545,62 +530,39 @@ class="bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 ant
             </div>
         </section>
 
-        <!-- 6. DOKUMENTASI KEGIATAN NON-MENGAJAR (NEW SECTION) -->
+        <!-- 6. DOKUMENTASI KEGIATAN NON-MENGAJAR (8 FOTO GRID) -->
         <section id="non-mengajar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Kontribusi Persekolahan</span>
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Dokumentasi Kegiatan Non-Mengajar</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Keterlibatan aktif mahasiswa PPL dalam mendukung ekosistem administrasi, kebudayaan, dan tata kelola di SMPN 6 Singaraja.</p>
+                <p class="text-slate-600 text-sm sm:text-base">Keterlibatan aktif mahasiswa PPL dalam mendukung ekosistem administrasi, kebudayaan, literasi, dan tata kelola di SMPN 6 Singaraja.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Activity Card 1 -->
-                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
-                    <div class="h-44 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Piket Administrasi">
-                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-matcha-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Administrasi</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <template x-for="(activity, index) in [
+                    {img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600', tag: 'Administrasi', title: 'Piket & Pelayanan Sekolah', desc: 'Membantu administrasi piket harian, menyambut kedatangan siswa di gerbang, dan pelayanan informasi.'},
+                    {img: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600', tag: 'Ekstrakurikuler', title: 'Pendampingan Ekskul Digital', desc: 'Mendampingi kelompok minat sains dan komputer siswa dalam persiapan kompetisi dan literasi digital.'},
+                    {img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600', tag: 'Kebudayaan & THK', title: 'Kegiatan Keagamaan & Adat', desc: 'Pendampingan persembahyangan bersama (Parahyangan) dan kebersihan lingkungan sekolah (Palemahan).'},
+                    {img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600', tag: 'Kolaborasi', title: 'Rapat & Evaluasi Sekolah', desc: 'Mengikuti rapat koordinasi dewan guru dan evaluasi bulanan program sekolah bersama pimpinan.'},
+                    {img: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=600', tag: 'Literasi Digital', title: 'Pengelolaan Perpustakaan', desc: 'Mendampingi digitalisasi katalog buku dan pengorganisasian sudut baca inklusif di perpustakaan sekolah.'},
+                    {img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600', tag: 'Asesmen Sekolah', title: 'Pengawasan Ujian Asesmen', desc: 'Berpartisipasi aktif sebagai pengawas ruang dalam pelaksanaan Asesmen Sumatif Akhir Semester.'},
+                    {img: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=600', tag: 'Inklusi & Bimbingan', title: 'Pendampingan Konseling Siswa', desc: 'Berkoordinasi dengan guru BK dalam mendampingi tumbuh kembang dan kesejahteraan psikologis siswa.'},
+                    {img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600', tag: 'Penilaian Kinerja', title: 'Supervisi Klinis DPL & GP', desc: 'Sesi konsultasi, refleksi pasca-mengajar, dan verifikasi berkas portofolio bersama dosen pembimbing.'}
+                ]">
+                    <div @click="lightboxOpen = true; lightboxImg = activity.img; lightboxCaption = activity.title + ' (' + activity.tag + ') - ' + activity.desc" class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg cursor-pointer group transition">
+                        <div class="h-44 rounded-2xl overflow-hidden relative">
+                            <img :src="activity.img" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" :alt="activity.title">
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-bold backdrop-blur-sm" x-text="activity.tag"></span>
+                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h4 class="font-bold text-slate-900 text-base" x-text="activity.title"></h4>
+                            <p class="text-xs text-slate-600 leading-relaxed" x-text="activity.desc"></p>
+                        </div>
                     </div>
-                    <div class="space-y-1.5">
-                        <h4 class="font-bold text-slate-900 text-base">Piket & Pelayanan Sekolah</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Membantu administrasi piket harian, menyambut kedatangan siswa di gerbang, dan pelayanan informasi sekolah.</p>
-                    </div>
-                </div>
-
-                <!-- Activity Card 2 -->
-                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
-                    <div class="h-44 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Pendampingan Ekstrakurikuler">
-                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lilac-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Ekstrakurikuler</span>
-                    </div>
-                    <div class="space-y-1.5">
-                        <h4 class="font-bold text-slate-900 text-base">Pendampingan Ekskul Digital</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Mendampingi kelompok minat sains dan komputer siswa dalam persiapan kompetisi dan literasi digital.</p>
-                    </div>
-                </div>
-
-                <!-- Activity Card 3 -->
-                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
-                    <div class="h-44 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Kegiatan Kebudayaan">
-                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-matcha-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Kebudayaan & THK</span>
-                    </div>
-                    <div class="space-y-1.5">
-                        <h4 class="font-bold text-slate-900 text-base">Kegiatan Keagamaan & Adat</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Pendampingan persembahyangan bersama (*Parahyangan*) dan kebersihan lingkungan sekolah (*Palemahan*).</p>
-                    </div>
-                </div>
-
-                <!-- Activity Card 4 -->
-                <div class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg transition">
-                    <div class="h-44 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Rapat Dewan Guru">
-                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lilac-900/80 text-white text-[10px] font-bold backdrop-blur-sm">Kolaborasi</span>
-                    </div>
-                    <div class="space-y-1.5">
-                        <h4 class="font-bold text-slate-900 text-base">Rapat & Evaluasi Sekolah</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">Mengikuti rapat koordinasi dewan guru dan evaluasi bulanan program sekolah bersama pimpinan SMPN 6 Singaraja.</p>
-                    </div>
-                </div>
+                </template>
             </div>
         </section>
 
