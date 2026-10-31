@@ -85,8 +85,7 @@
     galleryTab: 's1',
     mobileMenuOpen: false,
     lightboxOpen: false,
-    lightboxImg: '',
-    lightboxCaption: ''
+    lightboxImg: ''
 }" 
 class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-slate-800 antialiased selection:bg-lilac-200 selection:text-lilac-900 min-h-screen">
 
@@ -269,12 +268,12 @@ class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-sla
             </div>
         </section>
 
-        <!-- 3. ARTIFAK & BUKTI MENGAJAR (1 SIKLUS UNGGULAN TERBAIK) -->
+        <!-- 3. ARTIFAK & BUKTI MENGAJAR (1 SIKLUS UNGGULAN TERBAIK) - EMBED PDF & VIDEO GOOGLE DRIVE -->
         <section id="artifak" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Produk Unggulan PPL</span>
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Artifak Pembelajaran Terbaik</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Rancangan Modul Ajar Diferensiasi dan Video Pelaksanaan Mengajar dari Siklus Terbaik (Siklus 4 Unggulan) yang diverifikasi oleh Guru Pamong & DPL.</p>
+                <p class="text-slate-600 text-sm sm:text-base">Modul Ajar PDF dan Video Praktik Mengajar yang dapat langsung dilihat dan diputar di halaman ini tanpa perlu mendownload.</p>
             </div>
 
             <!-- Single Featured Cycle Container -->
@@ -293,56 +292,37 @@ class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-sla
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Modul Ajar Preview -->
+                    
+                    <!-- 1. MODUL AJAR PDF (EMBED GOOGLE DRIVE) -->
                     <div class="space-y-4">
                         <h4 class="font-bold text-base text-slate-900 flex items-center space-x-2">
                             <div class="p-2 rounded-xl bg-matcha-100 text-matcha-700">
                                 <i data-lucide="file-text" class="w-5 h-5"></i>
                             </div>
-                            <span>Modul Ajar / RPP Diferensiasi & LKPD</span>
+                            <span>Modul Ajar PDF (Baca Langsung)</span>
                         </h4>
-                        <div class="rounded-2xl border border-lilac-200 overflow-hidden bg-white/90 shadow-sm h-80 flex flex-col justify-between p-6">
-                            <div class="space-y-3">
-                                <div class="flex items-center justify-between text-xs text-slate-500 font-semibold">
-                                    <span>Format: Google Docs / PDF</span>
-                                    <span class="text-emerald-600 font-bold flex items-center"><i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1 inline"></i> Terverifikasi GP & DPL</span>
-                                </div>
-                                <h5 class="font-bold text-slate-900 text-base">Modul Ajar Berbasis UbD & Diferensiasi Proses</h5>
-                                <p class="text-xs text-slate-600 leading-relaxed">
-                                    Memuat perencanaan mundur (backward design), lembar kerja peserta didik (LKPD) berbasis pemecahan masalah kelompok, instrumen asesmen formatif, serta rubrik penilaian performa siswa.
-                                </p>
-                            </div>
-                            <div class="bg-gradient-to-r from-matcha-50 to-lilac-50 p-4 rounded-xl border border-lilac-200 text-center space-y-3">
-                                <p class="text-xs text-slate-600 font-medium">Akses berkas lengkap melalui Google Drive:</p>
-                                <a href="#" target="_blank" class="inline-flex items-center space-x-2 px-6 py-2.5 bg-gradient-to-r from-matcha-600 to-lilac-600 hover:from-matcha-700 hover:to-lilac-700 text-white rounded-xl text-xs font-bold shadow-md transition">
-                                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                                    <span>Buka Dokumen Modul Ajar (PDF)</span>
-                                </a>
-                            </div>
+                        <div class="rounded-2xl border border-matcha-200 overflow-hidden bg-white shadow-sm h-[420px] flex flex-col">
+                            <!-- Ganti LINK_PDF_DRIVE_ANDA dengan link preview google drive anda -->
+                            <iframe src="https://drive.google.com/file/d/1IXHfC4XnzsBk3Mh-QpgKV4BAvAcDDkGn/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
                         </div>
+                        <p class="text-[11px] text-slate-500 text-center">*Dokumen PDF Modul Ajar di atas dapat digeser dan dibaca langsung dari halaman ini.</p>
                     </div>
 
-                    <!-- Video Praktik Preview -->
+                    <!-- 2. VIDEO PRAKTIK PEMBELAJARAN (EMBED GOOGLE DRIVE) -->
                     <div class="space-y-4">
                         <h4 class="font-bold text-base text-slate-900 flex items-center space-x-2">
                             <div class="p-2 rounded-xl bg-lilac-100 text-lilac-700">
                                 <i data-lucide="video" class="w-5 h-5"></i>
                             </div>
-                            <span>Video Pelaksanaan Praktik Pembelajaran</span>
+                            <span>Video Praktik Mengajar (Putar Langsung)</span>
                         </h4>
-                        <div class="rounded-2xl border border-lilac-200 overflow-hidden bg-slate-900 shadow-sm h-80 relative flex items-center justify-center group">
-                            <img src="https://drive.google.com/file/d/16qk5JM-eyXdhdItmNt91Bvt_cX9eJTHV/view?usp=drive_link" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition duration-500" alt="Video thumbnail">
-                            <div class="relative z-10 text-center space-y-3 p-4">
-                                <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-matcha-500 to-lilac-500 p-0.5 shadow-xl cursor-pointer hover:scale-110 transition">
-                                    <div class="w-full h-full bg-slate-900/80 rounded-full flex items-center justify-center text-white">
-                                        <i data-lucide="play" class="w-8 h-8 ml-1 text-lilac-200"></i>
-                                    </div>
-                                </div>
-                                <p class="text-white text-xs font-bold drop-shadow">Rekaman Pembelajaran Siklus 4 (Durasi 45 Menit)</p>
-                                <span class="inline-block px-3 py-1 rounded-full bg-black/60 text-white text-[10px] backdrop-blur-sm">Embed Video Google Drive / YouTube</span>
-                            </div>
+                        <div class="rounded-2xl border border-lilac-200 overflow-hidden bg-slate-900 shadow-sm h-[420px] flex flex-col relative">
+                            <!-- Ganti LINK_VIDEO_DRIVE_ANDA dengan link preview google drive anda -->
+                            <iframe src="https://drive.google.com/file/d/16qk5JM-eyXdhdItmNt91Bvt_cX9eJTHV/preview" class="w-full h-full border-0" allow="autoplay" allowfullscreen></iframe>
                         </div>
+                        <p class="text-[11px] text-slate-500 text-center">*Video pembelajaran di atas dapat langsung ditekan tombol play-nya tanpa perlu akses ke Drive.</p>
                     </div>
+
                 </div>
 
             </div>
@@ -438,91 +418,75 @@ class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-sla
                 </div>
             </div>
 
-            <!-- GALLERY GRID (4 PHOTOS PER CYCLE) -->
+            <!-- GALLERY GRID (4 PHOTOS PER CYCLE - NO CAPTION) -->
             <div class="glass-card p-6 sm:p-8 rounded-[2.5rem] shadow-xl border border-white">
                 <div x-show="galleryTab === 's1'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <template x-for="(photo, index) in [
-                        {img: 'Siklus 1 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Observasi Awal Kelas', desc: 'Orientasi awal lingkungan SMPN 6 Singaraja.'},
-                        {img: 'Siklus 1 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Asesmen Diagnostik', desc: 'Pemetaan gaya belajar peserta didik.'},
-                        {img: 'Siklus 1 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Bersama GP', desc: 'Koordinasi rancangan modul terbimbing.'},
-                        {img: 'Siklus 1 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Refleksi Siklus 1', desc: 'Evaluasi awal praktik mengajar terbimbing.'}
+                    <template x-for="photo in [
+                        {img: 'Siklus 1 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 1 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 1 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 1 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
-                            <div class="h-48 overflow-hidden relative">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
+                            <div class="h-64 overflow-hidden relative">
                                 <img :src="photo.img" :onerror="`this.onerror=null; this.src='${photo.fallback}';`" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                     <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
-                            </div>
-                            <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
-                                <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
                     </template>
                 </div>
 
                 <div x-show="galleryTab === 's2'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <template x-for="(photo, index) in [
-                        {img: 'Siklus 2 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Berpikir Komputasional', desc: 'Penyampaian materi dekomposisi masalah.'},
-                        {img: 'Siklus 2 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Kelompok LKPD', desc: 'Pengerjaan tugas kolaboratif siswa.'},
-                        {img: 'Siklus 2 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Presentasi Proyek', desc: 'Penyampaian hasil karya siswa depan kelas.'},
-                        {img: 'Siklus 2 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Asesmen Formatif', desc: 'Umpan balik langsung dari guru pratama.'}
+                    <template x-for="photo in [
+                        {img: 'Siklus 2 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 2 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 2 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 2 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
-                            <div class="h-48 overflow-hidden relative">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
+                            <div class="h-64 overflow-hidden relative">
                                 <img :src="photo.img" :onerror="`this.onerror=null; this.src='${photo.fallback}';`" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                     <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
-                            </div>
-                            <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
-                                <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
                     </template>
                 </div>
 
                 <div x-show="galleryTab === 's3'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <template x-for="(photo, index) in [
-                        {img: 'Siklus 3 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Jaringan Komputer', desc: 'Simulasi etika ruang publik virtual.'},
-                        {img: 'Siklus 3 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Bimbingan Individu', desc: 'Pendampingan TaRL bagi siswa.'},
-                        {img: 'Siklus 3 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Diskusi Keamanan Digital', desc: 'Materi literasi internet aman.'},
-                        {img: 'Siklus 3 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Evaluasi Pembelajaran', desc: 'Pemberian tes formatif interaktif.'}
+                    <template x-for="photo in [
+                        {img: 'Siklus 3 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 3 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 3 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 3 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
-                            <div class="h-48 overflow-hidden relative">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
+                            <div class="h-64 overflow-hidden relative">
                                 <img :src="photo.img" :onerror="`this.onerror=null; this.src='${photo.fallback}';`" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                     <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
-                            </div>
-                            <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
-                                <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
                     </template>
                 </div>
 
                 <div x-show="galleryTab === 's4'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <template x-for="(photo, index) in [
-                        {img: 'Siklus 4 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600', title: 'Praktik Siklus Unggulan', desc: 'Penerapan gim edukasi labirin interaktif.'},
-                        {img: 'Siklus 4 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600', title: 'Kerjasama Tri Hita Karana', desc: 'Kolaborasi harmonis kelompok siswa.'},
-                        {img: 'Siklus 4 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600', title: 'Supervisi DPL & GP', desc: 'Penilaian akhir praktik mengajar mandiri.'},
-                        {img: 'Siklus 4 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600', title: 'Refleksi Penutup PPL', desc: 'Pemberian apresiasi pada peserta didik.'}
+                    <template x-for="photo in [
+                        {img: 'Siklus 4 (1).jpeg', fallback: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 4 (2).jpeg', fallback: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 4 (3).jpeg', fallback: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'},
+                        {img: 'Siklus 4 (4).jpeg', fallback: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600'}
                     ]">
-                        <div @click="lightboxOpen = true; lightboxImg = photo.img; lightboxCaption = photo.title + ' - ' + photo.desc" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
-                            <div class="h-48 overflow-hidden relative">
+                        <div @click="lightboxOpen = true; lightboxImg = photo.img" class="group bg-white rounded-2xl overflow-hidden border border-lilac-200/60 shadow-sm cursor-pointer hover:shadow-lg transition">
+                            <div class="h-64 overflow-hidden relative">
                                 <img :src="photo.img" :onerror="`this.onerror=null; this.src='${photo.fallback}';`" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                     <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                                 </div>
-                            </div>
-                            <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-slate-900 text-sm" x-text="photo.title"></h4>
-                                <p class="text-xs text-slate-500" x-text="photo.desc"></p>
                             </div>
                         </div>
                     </template>
@@ -530,7 +494,7 @@ class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-sla
             </div>
         </section>
 
-        <!-- 6. DOKUMENTASI KEGIATAN NON-MENGAJAR (8 FOTO GRID) -->
+        <!-- 6. DOKUMENTASI KEGIATAN NON-MENGAJAR (8 FOTO GRID - NO CAPTION) -->
         <section id="non-mengajar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
                 <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-matcha-100 to-lilac-100 text-slate-800 text-xs font-extrabold uppercase tracking-wider border border-lilac-200">Kontribusi Persekolahan</span>
@@ -539,27 +503,22 @@ class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-sla
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <template x-for="(activity, index) in [
-                    {img: 'non mengajar (1).jpeg', fallback: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600', tag: 'Administrasi', title: 'Piket & Pelayanan Sekolah', desc: 'Membantu administrasi piket harian, menyambut kedatangan siswa di gerbang, dan pelayanan informasi.'},
-                    {img: 'non mengajar (2).jpeg', fallback: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600', tag: 'Ekstrakurikuler', title: 'Pendampingan Ekskul Digital', desc: 'Mendampingi kelompok minat sains dan komputer siswa dalam persiapan kompetisi dan literasi digital.'},
-                    {img: 'non mengajar (3).jpeg', fallback: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600', tag: 'Kebudayaan & THK', title: 'Kegiatan Keagamaan & Adat', desc: 'Pendampingan persembahyangan bersama (Parahyangan) dan kebersihan lingkungan sekolah (Palemahan).'},
-                    {img: 'non mengajar (4).jpeg', fallback: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600', tag: 'Kolaborasi', title: 'Rapat & Evaluasi Sekolah', desc: 'Mengikuti rapat koordinasi dewan guru dan evaluasi bulanan program sekolah bersama pimpinan.'},
-                    {img: 'non mengajar (5).jpeg', fallback: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=600', tag: 'Literasi Digital', title: 'Pengelolaan Perpustakaan', desc: 'Mendampingi digitalisasi katalog buku dan pengorganisasian sudut baca inklusif di perpustakaan sekolah.'},
-                    {img: 'non mengajar (6).jpeg', fallback: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600', tag: 'Asesmen Sekolah', title: 'Pengawasan Ujian Asesmen', desc: 'Berpartisipasi aktif sebagai pengawas ruang dalam pelaksanaan Asesmen Sumatif Akhir Semester.'},
-                    {img: 'non mengajar (7).jpeg', fallback: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=600', tag: 'Inklusi & Bimbingan', title: 'Pendampingan Konseling Siswa', desc: 'Berkoordinasi dengan guru BK dalam mendampingi tumbuh kembang dan kesejahteraan psikologis siswa.'},
-                    {img: 'non mengajar (8).jpeg', fallback: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600', tag: 'Penilaian Kinerja', title: 'Supervisi Klinis DPL & GP', desc: 'Sesi konsultasi, refleksi pasca-mengajar, dan verifikasi berkas portofolio bersama dosen pembimbing.'}
+                <template x-for="activity in [
+                    {img: 'non mengajar (1).jpeg', fallback: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (2).jpeg', fallback: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (3).jpeg', fallback: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (4).jpeg', fallback: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (5).jpeg', fallback: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (6).jpeg', fallback: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (7).jpeg', fallback: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=600'},
+                    {img: 'non mengajar (8).jpeg', fallback: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600'}
                 ]">
-                    <div @click="lightboxOpen = true; lightboxImg = activity.img; lightboxCaption = activity.title + ' (' + activity.tag + ') - ' + activity.desc" class="glass-card p-5 rounded-3xl border border-white shadow-sm space-y-4 hover:shadow-lg cursor-pointer group transition">
-                        <div class="h-44 rounded-2xl overflow-hidden relative">
-                            <img :src="activity.img" :onerror="`this.onerror=null; this.src='${activity.fallback}';`" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" :alt="activity.title">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-bold backdrop-blur-sm" x-text="activity.tag"></span>
-                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                    <div @click="lightboxOpen = true; lightboxImg = activity.img" class="glass-card p-4 rounded-3xl border border-white shadow-sm hover:shadow-lg cursor-pointer group transition">
+                        <div class="h-64 rounded-2xl overflow-hidden relative">
+                            <img :src="activity.img" :onerror="`this.onerror=null; this.src='${activity.fallback}';`" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                 <span class="bg-white/90 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow">Perbesar Foto</span>
                             </div>
-                        </div>
-                        <div class="space-y-1.5">
-                            <h4 class="font-bold text-slate-900 text-base" x-text="activity.title"></h4>
-                            <p class="text-xs text-slate-600 leading-relaxed" x-text="activity.desc"></p>
                         </div>
                     </div>
                 </template>
@@ -659,17 +618,16 @@ class="font-sans bg-gradient-to-br from-matcha-50 via-white to-lilac-50 text-sla
 
     <!-- LIGHTBOX MODAL -->
     <div x-show="lightboxOpen" x-cloak class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4" @click.self="lightboxOpen = false">
-        <div class="relative bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl p-6 space-y-4 border border-lilac-200">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg text-slate-900">Dokumentasi Kegiatan PPL</h3>
+        <div class="relative bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl p-4 border border-lilac-200 space-y-3">
+            <div class="flex justify-between items-center px-2">
+                <h3 class="font-bold text-base text-slate-900">Pratinjau Dokumentasi</h3>
                 <button @click="lightboxOpen = false" class="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
-            <div class="rounded-2xl overflow-hidden max-h-[60vh] bg-slate-900 flex items-center justify-center">
-                <img :src="lightboxImg" :onerror="`this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800';`" class="max-h-[60vh] object-contain w-full">
+            <div class="rounded-2xl overflow-hidden max-h-[75vh] bg-slate-900 flex items-center justify-center">
+                <img :src="lightboxImg" :onerror="`this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800';`" class="max-h-[75vh] object-contain w-full">
             </div>
-            <p class="text-sm text-slate-700 font-medium text-center" x-text="lightboxCaption"></p>
         </div>
     </div>
 
